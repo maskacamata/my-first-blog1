@@ -10,10 +10,16 @@
 	<title>Blog | Post List</title>
 </head>
 <body>
-	<em>
 	<h1>
-		Hello There!
+		Post list!
 	</h1>
-	</em>
+	{% for post in posts %}
+		<div>
+			<p>published : {{ post.published_date }} </p>
+			<h2><a href="#">{{ post.title }}</a></h2>
+			<p>{{ post.tex|linebreaksbr }}</p>
+			<hr>
+		</div>
+	{% endfor %}
 </body>
 </html>
