@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<style type="text/css">
-		h1{
-			color: gray;
-			font-family: Arial;
-		}
-	</style>
-	<title>Blog | Post List</title>
-</head>
-<body>
-	<h1>
-		Post list!
-	</h1>
-	{% for post in posts %}
-		<div>
-			<p>published : {{ post.published_date }} </p>
-			<h2><a href="#">{{ post.title }}</a></h2>
-			<p>{{ post.tex|linebreaksbr }}</p>
-			<hr>
-		</div>
-	{% endfor %}
-</body>
-</html>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+{% for post in posts %}
+<div class="post">
+    <p>published : {{ post.published_date }} </p>
+    <h1><a href="{% url 'post_detail' pid=post.pk %}">{{ post.title }}</a></h1>
+    <p>{{ post.tex|linebreaksbr }}</p>
+    <hr>
+</div>
+{% endfor %}
+{% endblock %}

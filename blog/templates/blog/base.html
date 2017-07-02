@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+	<title>Blog | Post List</title>
+</head>
+<body>
+    <div class="page-header">
+        <div class="row">
+            <div class="col-md-3">
+                <h1>
+                    <a href="{% url 'post_list' %}">The Blog Post!</a>
+                </h1>
+            </div>
+            <div class="col-md-3">
+                <img src="{% static 'images/cloud-pencil-document.png' %}" style="width:80px; height:80px;"/>
+            </div>
+        </div>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                	{% block content %}
+                    {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
